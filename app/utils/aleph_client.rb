@@ -4,6 +4,7 @@ class AlephClient
     aleph_data = aleph_x_client.get(
       op: "bor_info",
       bor_id: ilsid,
+      library: "edu50",
       cash: "N",
       loans: "N",
       hold: "N"
@@ -17,9 +18,9 @@ class AlephClient
     else
       bib_data = {}
 
-      bib_data[:name] = aleph_xml.at_xpath("//z304/z304-address-0")&.text
-      bib_data[:street] = aleph_xml.at_xpath("//z304/z304-address-1")&.text
-      bib_data[:city] = aleph_xml.at_xpath("//z304/z304-address-2")&.text
+      bib_data[:name] = aleph_xml.at_xpath("//z304/z304-address-1")&.text
+      bib_data[:street] = aleph_xml.at_xpath("//z304/z304-address-2")&.text
+      bib_data[:city] = aleph_xml.at_xpath("//z304/z304-address-3")&.text
       bib_data[:phone] = aleph_xml.at_xpath("//z304/z304-telephone")&.text
       bib_data[:email] = aleph_xml.at_xpath("//z304/z304-email-address")&.text
 
